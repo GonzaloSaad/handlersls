@@ -1,4 +1,4 @@
-# handlersls
+# shandlers
 
 A python lib that provides handlers for serverless events
 
@@ -8,5 +8,5 @@ A python lib that provides handlers for serverless events
 
 Add this to you python requirements:
 
-    handlersls==0.0.1
+    shandlers==0.0.1
 

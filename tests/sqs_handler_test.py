@@ -6,7 +6,7 @@ from unittest.mock import Mock, patch
 
 from marshmallow import Schema, fields, post_load
 
-from handlersls.sqs.handler import sqs_handler
+from shandlers.sqs.handler import sqs_handler
 
 
 class SQSHandlerDecoratorTest(unittest.TestCase):
@@ -19,7 +19,7 @@ class SQSHandlerDecoratorTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             sqs_handler(retry_threshold=retry_threshold)
 
-    @patch("handlersls.sqs.handler._SQSHandler")
+    @patch("shandlers.sqs.handler._SQSHandler")
     def test_sqs_handler_no_threshold_no_schema_no_logger(self, sqs_handler_cls):
         # Given
         function = Mock()
@@ -52,7 +52,7 @@ class SQSHandlerDecoratorTest(unittest.TestCase):
             logger_arg = args[3]
             self.assertTrue(isinstance(logger_arg, Logger))
 
-    @patch("handlersls.sqs.handler._SQSHandler")
+    @patch("shandlers.sqs.handler._SQSHandler")
     def test_sqs_handler_no_threshold_no_schema_with_logger(self, sqs_handler_cls):
         # Given
         function = Mock()
@@ -86,7 +86,7 @@ class SQSHandlerDecoratorTest(unittest.TestCase):
             logger_arg = args[3]
             self.assertEqual(logger, logger_arg)
 
-    @patch("handlersls.sqs.handler._SQSHandler")
+    @patch("shandlers.sqs.handler._SQSHandler")
     def test_sqs_handler_no_threshold_with_schema_with_logger(self, sqs_handler_cls):
         # Given
         function = Mock()
@@ -121,7 +121,7 @@ class SQSHandlerDecoratorTest(unittest.TestCase):
             logger_arg = args[3]
             self.assertEqual(logger, logger_arg)
 
-    @patch("handlersls.sqs.handler._SQSHandler")
+    @patch("shandlers.sqs.handler._SQSHandler")
     def test_sqs_handler_with_threshold_with_schema_with_logger(self, sqs_handler_cls):
         # Given
         function = Mock()

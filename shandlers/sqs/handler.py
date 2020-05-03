@@ -3,8 +3,8 @@ from json import JSONDecodeError
 
 from marshmallow.exceptions import ValidationError
 
-from handlersls.logger import create_logger
-from handlersls.sqs.schema import SQSEventSchema
+from shandlers.logger import create_logger
+from shandlers.sqs.schema import SQSEventSchema
 
 _SQS_EVENT_SCHEMA = SQSEventSchema()
 _LOGGER = create_logger()

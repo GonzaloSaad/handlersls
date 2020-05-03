@@ -9,14 +9,14 @@ with open('requirements.txt') as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
-    name='handlersls',
+    name='shandlers',
     version=__version__,
     author='GonzaloSaad',
     author_email='saad.gonzalo.ale@gmail.com',
     description="A python lib that provides handlers for serverless events",
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/GonzaloSaad/handlersls',
+    url='https://github.com/GonzaloSaad/shandlers',
     packages=setuptools.find_packages(),
     install_requires=requirements,
     classifiers=[],
