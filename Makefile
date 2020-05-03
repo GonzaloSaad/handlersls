@@ -83,4 +83,10 @@ coverage: clean-test
 	@coverage html
 
 build: clean-dist test
+	@echo "Updating setuptools and wheel..."
+	@python3 -m pip install --upgrade setuptools wheel
+	@echo "Building package..."
 	@python3 setup.py sdist
+
+upload: build
+	@twine upload --repository testpypi dist/*

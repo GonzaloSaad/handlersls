@@ -1,2 +1,2 @@
 # Nothing for now
-marshmallow==3.5.2
+marshmallow==3.5.*
