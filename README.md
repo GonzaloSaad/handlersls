@@ -1,6 +1,8 @@
 # shandlers
+
 [![serverless](http://public.serverless.com/badges/v3.svg)](http://www.serverless.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.com/GonzaloSaad/shandlers.svg?branch=master)](https://travis-ci.com/GonzaloSaad/shandlers)
 
 A python lib that provides handlers for serverless events
 
