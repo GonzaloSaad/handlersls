@@ -10,8 +10,7 @@ matrix:
       dist: xenial
       sudo: true
 
-install:
-  - make init
-
 script:
-  - source venv/bin/activate; make build
+  - make init
+  - source venv/bin/activate
+  - make build
