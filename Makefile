@@ -12,7 +12,7 @@ coverage \
 
 # Python requirements
 VENV ?= venv
-REQUIREMENTS ?= dev-requirements.txt
+REQUIREMENTS ?= requirements-dev.txt
 
 help:
 	@echo "    init"
