@@ -7,6 +7,9 @@ clean-pyc \
 clean-test \
 test \
 coverage \
+build \
+upload-test \
+upload \
 
 .DEFAULT_GOAL := help
 
@@ -33,6 +36,12 @@ help:
 	@echo "        Run pytest."
 	@echo "    coverage"
 	@echo "        Generate coverage report."
+	@echo "    build"
+	@echo "        Build the distribution artifacts."
+	@echo "    upload-test"
+	@echo "        Upload to pypi test."
+	@echo "    upload"
+	@echo "        Upload to pypi."
 
 init: clean init-venv
 	@echo ""
@@ -45,7 +54,7 @@ init-venv:
 update-venv:
 	@( \
 		. $(VENV)/bin/activate; \
-		pip install --upgrade setuptools pip; \
+		pip install --upgrade setuptools pip wheel; \
 		pip install -r $(REQUIREMENTS); \
 		pre-commit install; \
 	)
@@ -83,10 +92,11 @@ coverage: clean-test
 	@coverage html
 
 build: clean-dist test
-	@echo "Updating setuptools and wheel..."
-	@python3 -m pip install --upgrade setuptools wheel
 	@echo "Building package..."
 	@python3 setup.py sdist
 
-upload: build
+upload-test: build
 	@twine upload --repository testpypi dist/*
+
+upload: build
+	@twine upload --repository pypi dist/*
