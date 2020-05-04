@@ -67,7 +67,7 @@ def handle(payload, receive_count, event, **kwargs):
 
 #### Schema
 
-You can add a `schema` to the decorator parameters, just in case you have for example
+You can add `schema` to the decorator parameters, in case you have for example
 a `marshmallow` schema or if you have any other mechanism to parse that responds to
 the `.loads(json_string)` call.
 
@@ -82,7 +82,7 @@ def handle(payload, **kwargs):
 
 Here the `payload` argument type will depend on the passed schema output.
 
-Also, if while parsing the record `body` a parsing error occurs , the event
+Also, if while parsing the record `body` a parsing error occurs, the event
 will be **DISCARDED**
 
 > The default value of `schema` is the `json` module from python
