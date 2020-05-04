@@ -18,6 +18,12 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     url='https://github.com/GonzaloSaad/shandlers',
     packages=setuptools.find_packages(),
+    keywords='python aws serverless',
     install_requires=requirements,
-    classifiers=[],
+    classifiers=[
+        'Intended Audience :: Developers',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 3',
+        'License :: OSI Approved :: MIT License',
+    ],
 )
