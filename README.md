@@ -89,7 +89,7 @@ will be **DISCARDED**.
 
 #### Retry threshold
 
-You can add a `retry_theshold` to the decorator parameters to specify the
+You can add `retry_theshold` to the decorator parameters to specify the
 amount of times a `record` can retry to be processed.
 
 ```python
@@ -104,7 +104,7 @@ def handle(payload, **kwargs):
 
 #### Logger
 
-You can add a `logger` to the decorator parameter, so the handlers uses your logger
+You can add `logger` to the decorator parameter, so the handlers uses your logger
 when an error occurs.
 
 ```python
