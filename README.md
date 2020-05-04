@@ -24,7 +24,7 @@ From PyPI:
 ### SQS Handler
 
 Create a function that accepts a `payload` and `kwargs` as parameters, that contains the logic
-that you want to apply to **each** of your records in the event
+that you want to apply to **each** of your records in the event.
 
 ```python
 def handle(payload, **kwargs):
@@ -52,7 +52,7 @@ The decorator will allow your function to:
 
 You can have extra arguemtns in your function if you need to. The `sqs_handler` decorator
 also passes `receive_count` and `event` as parameters, in case you need to perform
-extra actions with that information
+extra actions with that information.
 
 ```python
 from shandlers.sqs.handler import sqs_handler
@@ -83,14 +83,14 @@ def handle(payload, **kwargs):
 Here the `payload` argument type will depend on the passed schema output.
 
 Also, if while parsing the record `body` a parsing error occurs, the event
-will be **DISCARDED**
+will be **DISCARDED**.
 
 > The default value of `schema` is the `json` module from python
 
 #### Retry threshold
 
 You can add a `retry_theshold` to the decorator parameters to specify the
-amount of times a `record` can retry to be processed, for example, in case of failures
+amount of times a `record` can retry to be processed.
 
 ```python
 from shandlers.sqs.handler import sqs_handler
@@ -105,7 +105,7 @@ def handle(payload, **kwargs):
 #### Logger
 
 You can add a `logger` to the decorator parameter, so the handlers uses your logger
-when an error occurs
+when an error occurs.
 
 ```python
 from shandlers.sqs.handler import sqs_handler
