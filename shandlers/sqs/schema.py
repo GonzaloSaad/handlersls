@@ -1,22 +1,30 @@
 from dataclasses import dataclass
 
-from marshmallow import Schema, fields, post_load
+from marshmallow import EXCLUDE, Schema, fields, post_load
 
 # Schemas
 
 
 class SQSEventAttributesSchema(Schema):
+
+    class Meta:
+        unknown = EXCLUDE
+
     approximate_receive_count = fields.Str(required=True, data_key="ApproximateReceiveCount")
     sent_timestamp = fields.Str(required=True, data_key="SentTimestamp")
     sender_id = fields.Str(required=True, data_key="SenderId")
     approximate_first_receive_timestamp = fields.Str(required=True, data_key="ApproximateFirstReceiveTimestamp")
 
     @post_load
-    def create_sqs_event_attributes(self, data, **kwargs):
+    def create_sqs_event_attributes(self, data, **_):
         return SQSEventAttributes(**data)
 
 
 class SQSRecordSchema(Schema):
+
+    class Meta:
+        unknown = EXCLUDE
+
     message_id = fields.Str(required=True, data_key="messageId")
     receipt_handle = fields.Str(required=True, data_key="receiptHandle")
     body = fields.Str(required=True, data_key="body")
@@ -28,7 +36,7 @@ class SQSRecordSchema(Schema):
     aws_region = fields.Str(required=True, data_key="awsRegion")
 
     @post_load
-    def create_sqs_record(self, data, **kwargs):
+    def create_sqs_record(self, data, **_):
         return SQSRecord(**data)
 
 
