@@ -4,6 +4,7 @@ from json import JSONDecodeError
 from marshmallow.exceptions import ValidationError
 
 from shandlers.logger import create_logger
+from shandlers.sqs.exceptions import SQSHandlerError
 from shandlers.sqs.schema import SQSEventSchema
 
 _SQS_EVENT_SCHEMA = SQSEventSchema()
@@ -47,6 +48,6 @@ class _SQSHandler:
 
         except (ValidationError, JSONDecodeError) as err:
             self.logger.error(f"Error while parsing: {err}. Event discarded.")
-        except Exception:
+        except Exception as err:
             self.logger.exception(f"Error while processing. Event discarded.")
-            raise
+            raise SQSHandlerError() from err
