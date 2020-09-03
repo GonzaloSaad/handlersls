@@ -11,7 +11,7 @@ A python lib that provides handlers for serverless events
 
 From PyPI:
 
-    shandlers==0.0.1
+    shandlers==0.0.3
 
 &nbsp;
 ## Supported events
